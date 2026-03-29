@@ -27,7 +27,7 @@ export function DonutChart({ data, height = 280 }: DonutChartProps) {
         </Pie>
         <Tooltip
           contentStyle={{ fontSize: 12, border: '1px solid #e5e5e5', borderRadius: 8, boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
-          formatter={(value: number) => [`${value} réponses`, '']}
+          formatter={(value) => [`${value} réponses`, '']}
         />
         <Legend
           wrapperStyle={{ fontSize: 11 }}

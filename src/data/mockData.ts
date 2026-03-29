@@ -37,11 +37,6 @@ export const sondageData: SondageEntry[] = [
 // Fichier: "Formulaire sans titre (réponses).xlsx"
 // ============================================================
 
-function parseQualiteMateriel(raw: string): number {
-  const match = raw.match(/^(\d)/)
-  return match ? parseInt(match[1]) : 0
-}
-
 export const satisfactionData: SatisfactionEntry[] = [
   {
     horodateur: '2026-03-27T14:43:06',
