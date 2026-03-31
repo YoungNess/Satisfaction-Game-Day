@@ -1,52 +1,104 @@
 /**
- * Mock data pour la heatmap des ventes.
- * Structure prête à être remplacée par les données SumUp.
- *
- * Pour intégrer les données réelles :
- * 1. Exporter l'historique SumUp en CSV/JSON
- * 2. Parser les transactions avec date/heure + montant
- * 3. Agréger par créneau horaire (et optionnellement par catégorie)
- * 4. Remplacer le tableau ci-dessous
+ * Données réelles SumUp — jeudi 26 mars 2026
+ * Total journée : 57,01 € (35 transactions payées, 5 échecs)
+ * Extraites manuellement depuis l'app SumUp.
  */
 
-export interface SalesSlot {
-  hour: string
-  category: string
-  count: number
+export interface Transaction {
+  time: string
+  amount: number
+  method: string
+  status: 'paid' | 'failed'
 }
 
-export const salesData: SalesSlot[] = [
-  // Boissons
-  { hour: '10h', category: 'Boissons', count: 2 },
-  { hour: '11h', category: 'Boissons', count: 5 },
-  { hour: '12h', category: 'Boissons', count: 12 },
-  { hour: '13h', category: 'Boissons', count: 18 },
-  { hour: '14h', category: 'Boissons', count: 15 },
-  { hour: '15h', category: 'Boissons', count: 20 },
-  { hour: '16h', category: 'Boissons', count: 14 },
-  { hour: '17h', category: 'Boissons', count: 8 },
-  { hour: '18h', category: 'Boissons', count: 3 },
-  // Snacks
-  { hour: '10h', category: 'Snacks', count: 1 },
-  { hour: '11h', category: 'Snacks', count: 3 },
-  { hour: '12h', category: 'Snacks', count: 8 },
-  { hour: '13h', category: 'Snacks', count: 14 },
-  { hour: '14h', category: 'Snacks', count: 10 },
-  { hour: '15h', category: 'Snacks', count: 16 },
-  { hour: '16h', category: 'Snacks', count: 11 },
-  { hour: '17h', category: 'Snacks', count: 6 },
-  { hour: '18h', category: 'Snacks', count: 2 },
-  // Goodies
-  { hour: '10h', category: 'Goodies', count: 0 },
-  { hour: '11h', category: 'Goodies', count: 1 },
-  { hour: '12h', category: 'Goodies', count: 3 },
-  { hour: '13h', category: 'Goodies', count: 5 },
-  { hour: '14h', category: 'Goodies', count: 7 },
-  { hour: '15h', category: 'Goodies', count: 9 },
-  { hour: '16h', category: 'Goodies', count: 6 },
-  { hour: '17h', category: 'Goodies', count: 4 },
-  { hour: '18h', category: 'Goodies', count: 1 },
+export const transactions: Transaction[] = [
+  // 12h
+  { time: '12:13', amount: 1.00, method: 'Apple Pay', status: 'paid' },
+  { time: '12:17', amount: 2.50, method: 'Google Pay', status: 'failed' },
+  { time: '12:20', amount: 1.00, method: 'Apple Pay', status: 'paid' },
+  { time: '12:31', amount: 1.50, method: 'Apple Pay', status: 'paid' },
+  { time: '12:37', amount: 1.50, method: 'Visa', status: 'paid' },
+  { time: '12:41', amount: 1.50, method: 'Inconnu', status: 'failed' },
+  { time: '12:41', amount: 1.50, method: 'Mastercard', status: 'paid' },
+  { time: '12:44', amount: 1.50, method: 'Visa', status: 'paid' },
+  { time: '12:45', amount: 1.50, method: 'Visa', status: 'paid' },
+  { time: '12:48', amount: 1.00, method: 'Visa', status: 'paid' },
+  { time: '12:53', amount: 1.50, method: 'Mastercard', status: 'paid' },
+  // 13h
+  { time: '13:00', amount: 1.50, method: 'Visa', status: 'paid' },
+  { time: '13:04', amount: 2.50, method: 'Visa', status: 'paid' },
+  { time: '13:09', amount: 1.50, method: 'Mastercard', status: 'paid' },
+  { time: '13:12', amount: 1.50, method: 'Mastercard', status: 'paid' },
+  { time: '13:14', amount: 1.50, method: 'Visa', status: 'paid' },
+  { time: '13:15', amount: 1.50, method: 'Visa', status: 'paid' },
+  { time: '13:17', amount: 1.00, method: 'Visa', status: 'paid' },
+  { time: '13:18', amount: 2.00, method: 'Mastercard', status: 'paid' },
+  { time: '13:22', amount: 1.00, method: 'Mastercard', status: 'paid' },
+  { time: '13:31', amount: 1.00, method: 'Visa', status: 'paid' },
+  { time: '13:32', amount: 1.00, method: 'Visa', status: 'paid' },
+  { time: '13:32', amount: 1.00, method: 'Visa', status: 'paid' },
+  { time: '13:35', amount: 1.00, method: 'Visa', status: 'paid' },
+  { time: '13:35', amount: 1.00, method: 'Visa', status: 'paid' },
+  { time: '13:37', amount: 1.00, method: 'Visa', status: 'paid' },
+  { time: '13:38', amount: 2.00, method: 'Inconnu', status: 'failed' },
+  { time: '13:38', amount: 2.00, method: 'Visa', status: 'paid' },
+  // 14h
+  { time: '14:11', amount: 1.00, method: 'Mastercard', status: 'paid' },
+  { time: '14:20', amount: 1.00, method: 'Visa', status: 'paid' },
+  { time: '14:21', amount: 1.00, method: 'Visa', status: 'paid' },
+  { time: '14:22', amount: 2.20, method: 'Visa', status: 'paid' },
+  { time: '14:25', amount: 2.00, method: 'Visa', status: 'paid' },
+  { time: '14:25', amount: 1.00, method: 'Visa', status: 'paid' },
+  // 15h
+  { time: '15:00', amount: 1.09, method: 'Inconnu', status: 'failed' },
+  { time: '15:01', amount: 10.09, method: 'Visa', status: 'paid' },
+  { time: '15:01', amount: 1.20, method: 'Visa', status: 'paid' },
+  { time: '15:06', amount: 1.00, method: 'Visa', status: 'paid' },
+  { time: '15:09', amount: 1.32, method: 'Inconnu', status: 'failed' },
+  { time: '15:27', amount: 1.32, method: 'Mastercard', status: 'paid' },
+  { time: '15:46', amount: 1.20, method: 'Visa', status: 'paid' },
 ]
 
-export const HOURS = ['10h', '11h', '12h', '13h', '14h', '15h', '16h', '17h', '18h']
-export const CATEGORIES = ['Boissons', 'Snacks', 'Goodies']
+// Agrégations précalculées
+export function getPaidTransactions() {
+  return transactions.filter(t => t.status === 'paid')
+}
+
+export function getRevenueByHour() {
+  const paid = getPaidTransactions()
+  const slots: Record<string, { count: number; revenue: number }> = {}
+  paid.forEach(t => {
+    const hour = t.time.split(':')[0] + 'h'
+    if (!slots[hour]) slots[hour] = { count: 0, revenue: 0 }
+    slots[hour].count++
+    slots[hour].revenue += t.amount
+  })
+  return ['12h', '13h', '14h', '15h'].map(h => ({
+    hour: h,
+    count: slots[h]?.count ?? 0,
+    revenue: Math.round((slots[h]?.revenue ?? 0) * 100) / 100,
+  }))
+}
+
+export function getPaymentMethodBreakdown() {
+  const paid = getPaidTransactions()
+  const methods: Record<string, number> = {}
+  paid.forEach(t => {
+    methods[t.method] = (methods[t.method] || 0) + 1
+  })
+  return Object.entries(methods)
+    .map(([name, value]) => ({ name, value }))
+    .sort((a, b) => b.value - a.value)
+}
+
+export function getSalesKpis() {
+  const paid = getPaidTransactions()
+  const failed = transactions.filter(t => t.status === 'failed')
+  const totalRevenue = paid.reduce((s, t) => s + t.amount, 0)
+  return {
+    totalRevenue: Math.round(totalRevenue * 100) / 100,
+    transactionCount: paid.length,
+    failedCount: failed.length,
+    avgTransaction: Math.round((totalRevenue / paid.length) * 100) / 100,
+  }
+}

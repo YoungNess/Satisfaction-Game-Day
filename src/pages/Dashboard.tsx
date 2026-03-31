@@ -6,7 +6,7 @@ import { AnimatedSection } from '../components/ui/AnimatedSection'
 import { SimpleBarChart } from '../components/charts/SimpleBarChart'
 import { DonutChart } from '../components/charts/DonutChart'
 import { SatisfactionInteractive } from '../components/satisfaction/SatisfactionInteractive'
-import { SalesHeatmap } from '../components/sales/SalesHeatmap'
+import { SalesSection } from '../components/sales/SalesHeatmap'
 import { FeedbackCards } from '../components/feedback/FeedbackCards'
 import { countBy, toChartData, flattenCanaux, averageScore, collectFreeText } from '../utils/formatters'
 
@@ -158,10 +158,10 @@ export function Dashboard({ data }: DashboardProps) {
         </Section>
       </AnimatedSection>
 
-      {/* ============ VENTES (HEATMAP) ============ */}
+      {/* ============ VENTES ============ */}
       <AnimatedSection>
-        <Section title="Ventes" subtitle="Volume de ventes par créneau horaire">
-          <SalesHeatmap />
+        <Section title="Ventes" subtitle="Données SumUp — jeudi 26 mars 2026 — 57,01 €">
+          <SalesSection />
         </Section>
       </AnimatedSection>
 
@@ -194,7 +194,7 @@ export function Dashboard({ data }: DashboardProps) {
                 <li>Sondage pré-événement : base MariaDB (gameday_db), table SONDAGE — {sondage.length} réponses</li>
                 <li>Formulaire post-événement : Google Forms (XLSX) — {totalPost} réponses, 27/03/2026</li>
                 <li>Inscriptions et passages : données fournies manuellement (40 + 34 inscrits, 60 passages)</li>
-                <li>Ventes : données mock en attente de l'historique SumUp</li>
+                <li>Ventes : historique SumUp du 26/03/2026 — 35 transactions payées, 5 échecs, 57,01 €</li>
               </ul>
             </div>
             <div>
@@ -202,7 +202,7 @@ export function Dashboard({ data }: DashboardProps) {
               <ul className="mt-1 space-y-1 text-tertiary list-disc list-inside">
                 <li>L'échelle de recommandation va de 1 (oui) à 5 (non). Scores 1-2 = positifs.</li>
                 <li>Les canaux de communication sont multi-valeurs.</li>
-                <li>La heatmap de ventes utilise des données fictives. Remplacer dans <code className="text-xs bg-surface px-1 py-0.5 rounded">src/data/salesData.ts</code></li>
+                <li>Les transactions SumUp ont été extraites manuellement depuis l'app (screenshots).</li>
               </ul>
             </div>
           </div>
